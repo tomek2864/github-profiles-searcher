@@ -3,6 +3,7 @@
   background-color: #282c34;
   min-height: 10vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   color: white;
@@ -11,7 +12,7 @@
 .logo {
   animation: logo-spin infinite 10s linear alternate;
   pointer-events: none;
-  max-width: "300px";
+  max-width: "250px";
 }
 
 @keyframes logo-spin {
@@ -24,38 +25,29 @@
 }
 
 .nav-search-bar {
-  padding-left: 30px;
-}
-
-.nav-search-bar div {
   display: flex;
-  justify-content: space-between;
+  align-items: center;
 }
 
 .nav-search h1 {
-  margin: 0;
-  text-align: center;
-  font-size: calc(12px + 3vmin);
+  font-size: calc(22px + 2vmin);
 }
 
 .nav-search input {
-  outline: none;
-  color: black;
+  color: #4e6b12;
   width: auto;
-  padding: 0 5px;
-  height: calc(11px + 2vmin);
+  padding: 0 10px;
+  height: calc(10px + 2vmin);
   font-size: calc(8px + 2vmin);
 }
-
 .nav-search button {
-  padding: 1px 25px;
+  padding: 1px 20px;
   background-color: #00864e;
   color: white;
   font-size: calc(5px + 2vmin);
-  border: none;
-  border-radius: 0 5px 5px 0;
+  border: 0;
 }
 .nav-search button:hover {
-  background-color: #005f37;
+  background-color: #4e6bbb;
   cursor: pointer;
 }
