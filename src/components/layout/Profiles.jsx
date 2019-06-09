@@ -2,19 +2,28 @@ import React, { Fragment, Component } from "react";
 import Profile from "./Profile";
 import PropTypes from "prop-types";
 import ModalWindow from "../modalWindow/ModalWindow";
+import Axios from "axios";
+import Loader from "react-loader-spinner";
 
 class Profiles extends Component {
   constructor(props) {
     super(props);
     this.state = {
       isModalWindowOpen: false,
-      user: {}
+      userFromApi: {},
+      loading: false,
+      errors: {}
     };
   }
 
-  openModalWindow = user => {
-    this.setState({ isModalWindowOpen: true, user: user });
-    console.log(user);
+  openModalWindow = async userName => {
+    this.setState({ loading: true });
+    const res = await Axios.get(
+      `https://api.github.com/users/${userName.login}?client_id=${
+      process.env.REACT_APP_GITHUB_CLIENT_ID
+      }&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`
+    );
+    this.setState({ isModalWindowOpen: true, user: res.data, loading: false });
   };
 
   closeModalWindow = () => {
@@ -26,12 +35,17 @@ class Profiles extends Component {
 
     return (
       <Fragment>
-        {this.state.isModalWindowOpen && (
+        {this.state.loading &&
+          <div className="loader">
+            <Loader type="ThreeDots" color="#282c34" height="200" width="200" />
+          </div>
+        }
+        {this.state.isModalWindowOpen &&
           <ModalWindow
             user={this.state.user}
             closeWindow={this.closeModalWindow}
           />
-        )}
+        }
         <div className="profiles-paper">
           {users.map(user => (
             <Profile

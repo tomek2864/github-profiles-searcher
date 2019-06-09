@@ -70,10 +70,20 @@
   justify-content: space-evenly;
 }
 
+.loader {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}
+
 .profile-cards {
   display: block;
   margin-top: 25px;
   margin-right: 25px;
+}
+
+.profile-cards h4 {
+  justify-content: center;
 }
 
 .profile-cards:hover {
@@ -115,9 +125,10 @@
 }
 
 .modal-window-header {
+  height: 20%;
   display: flex;
   justify-content: space-between;
-  padding: 25px 50px;
+  padding: 0px 50px;
   align-items: center;
 }
 
@@ -132,6 +143,69 @@
   cursor: pointer;
 }
 
+.modal-window-content {
+  display: flex;
+  width: 100%;
+  height: 80%;
+  color: #222;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-window-content img {
+  margin-top: -3px;
+  height: calc(100% - 1px);
+  width: auto;
+  border-radius: 0 0 0 25px;
+}
+
+.modal-window-text {
+  padding: 0 25px;
+  width: 70%;
+}
+
+.modal-window-text-header {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.modal-window-text h1,
+h2,
+h3,
+h4 {
+  padding: 10px 0;
+  display: flex;
+  margin: 0;
+  align-items: center;
+  text-align: justify;
+}
+
+.modal-window-text-header h2 {
+  width: 75%;
+}
+
+.modal-window-no-repos,
+.modal-window-link-github {
+  width: 25%;
+  margin: 15px 0;
+  padding: 1%;
+  border-radius: 5px;
+  background-color: #cf5d00;
+  color: #fff;
+  text-align: center;
+}
+
+.modal-window-link-github {
+  width: auto;
+  margin: 15px 0;
+  background-color: #0880af;
+}
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
 .modal-window-background {
   position: fixed;
   top: 0;
@@ -141,4 +215,60 @@
   background-color: #000;
   opacity: 0.85;
   z-index: 900;
+}
+
+@media only screen and (max-width: 1000px) {
+  .modal-window-header {
+    height: 10%;
+    display: flex;
+    justify-content: space-around;
+    padding: 0px 10px;
+    align-items: center;
+  }
+
+  .modal-window {
+    padding-bottom: 10%;
+    position: fixed;
+    width: auto;
+    height: auto;
+    z-index: 1000;
+    top: 10%;
+    background-color: #f0f0f0;
+    border-radius: 25px;
+  }
+
+  .modal-window-content {
+    display: block;
+  }
+
+  .modal-window-content {
+    width: 100%;
+  }
+
+  .modal-window-content img {
+    margin-top: -1px;
+    width: 70%;
+    height: auto;
+    border-radius: 25px;
+    margin-left: 15%;
+  }
+
+  .modal-window-text {
+    padding: 5px;
+    width: 100%;
+  }
+
+  .modal-window-text-header {
+    display: block;
+  }
+
+  .modal-window-text-header h2 {
+    width: 100%;
+  }
+
+  .modal-window-no-repos,
+  .modal-window-link-github {
+    width: 100%;
+    margin: 0px;
+  }
 }

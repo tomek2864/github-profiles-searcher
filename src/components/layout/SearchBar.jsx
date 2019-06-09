@@ -34,6 +34,7 @@ class Navbar extends Component {
                 placeholder="Search Users..."
                 value={this.state.userFromInput}
                 onChange={this.onChange}
+                autocomplete="off"
               />
               <button onClick={this.searchUser}>Search</button>
             </div>
